@@ -2,7 +2,7 @@ import bgImage from "../assets/images/house-3.jpg";
 
 export default function BottomSection() {
   return (
-    <section id="information" className="pt-5">
+    <section id="information" className="pt-20">
       <div className="container-page">
         {/* Navigation */}
         <nav className="flex items-center justify-between px-4 md:px-8 py-3 md:py-4 relative z-20">
@@ -14,7 +14,8 @@ export default function BottomSection() {
             </span>
           </div>
 
-          <button className="px-4 md:px-6 py-1.5 md:py-2 text-xs md:text-sm text-blue-500 border border-blue-300 rounded-full hover:bg-blue-50 transition">
+          <button className="flex items-center gap-2 px-4 md:px-6 py-1.5 md:py-2 text-xs md:text-sm text-blue-500 border border-blue-300 rounded-full hover:bg-blue-50 transition">
+            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
             Properly Indonesia
           </button>
 
@@ -97,7 +98,7 @@ export default function BottomSection() {
       left-1/2
       -translate-x-1/2
       text-white
-      text-xs
+      text-[10px]
       sm:text-sm
       text-center
       opacity-80

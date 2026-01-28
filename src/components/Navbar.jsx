@@ -4,9 +4,8 @@ export default function Navbar() {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [active, setActive] = useState("about");
-  const [open, setOpen] = useState(false); // mobile menu
+  const [open, setOpen] = useState(false);
 
-  /* Hide on scroll down, show on scroll up */
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
@@ -24,7 +23,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  /* Scroll spy */
   useEffect(() => {
     const sections = ["about", "portfolio", "information"];
 
@@ -61,7 +59,7 @@ export default function Navbar() {
         show ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="container-page flex items-center justify-between py-5">
+      <div className="container-page flex items-center justify-between py-3">
         {/* Logo */}
         <div className="flex items-center gap-2 text-xl font-semibold">
           <span className="text-blue-500">▲</span>

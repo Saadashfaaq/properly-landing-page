@@ -5,7 +5,7 @@ export default function PropertyCard({ data }) {
       <img
         src={data.image}
         alt={data.title}
-        className="w-full h-60 object-cover"
+        className="w-full h-80 object-cover"
       />
 
       {/* Content */}
@@ -16,7 +16,7 @@ export default function PropertyCard({ data }) {
         </p>
 
         {/* Title */}
-        <h3 className="mt-1 text-xl font-semibold text-gray-900 leading-tight">
+        <h3 className="mt-4 text-xl font-semibold text-gray-900 leading-tight">
           {data.title}
         </h3>
 
