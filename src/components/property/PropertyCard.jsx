@@ -30,7 +30,7 @@ export default function PropertyCard({ data }) {
               {data.price}
             </p>
           </div>
-          <div className="w-[50%]">
+          <div className="w-[50%] pr-10">
             {/* Description */}
             <p className="text-sm text-gray-500 leading-relaxed text-left flex-1">
               {data.description}

@@ -1,18 +1,53 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PropertyCard from "./PropertyCard";
 import { properties } from "../../data/property";
 
 export default function PropertyCaroursel() {
-  const VISIBLE = 3;
-  const STEP = 2;
+  const STEP = 1;
+  const GAP = 24; // px
 
+  const [visible, setVisible] = useState(3);
   const [startIndex, setStartIndex] = useState(0);
-  const [direction, setDirection] = useState("right"); // "left" | "right"
+  const [cardPxWidth, setCardPxWidth] = useState(0);
 
-  const maxIndex = Math.max(0, properties.length - VISIBLE);
+  const containerRef = useRef(null);
+
+  // RESPONSIVE
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setVisible(1);
+      } else if (window.innerWidth < 1024) {
+        setVisible(2);
+      } else {
+        setVisible(3);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // REAL WIDTH CALC
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const calc = () => {
+      const containerWidth = containerRef.current.clientWidth;
+      const totalGap = (visible - 1) * GAP;
+      const width = (containerWidth - totalGap) / visible;
+      setCardPxWidth(width);
+    };
+
+    calc();
+    window.addEventListener("resize", calc);
+    return () => window.removeEventListener("resize", calc);
+  }, [visible]);
+
+  const maxIndex = Math.max(0, properties.length - visible);
 
   const next = () => {
-    setDirection("right");
     setStartIndex((prev) => {
       const nextIndex = prev + STEP;
       return nextIndex >= maxIndex ? maxIndex : nextIndex;
@@ -20,7 +55,6 @@ export default function PropertyCaroursel() {
   };
 
   const prev = () => {
-    setDirection("left");
     setStartIndex((prev) => {
       const nextIndex = prev - STEP;
       return nextIndex <= 0 ? 0 : nextIndex;
@@ -30,21 +64,21 @@ export default function PropertyCaroursel() {
   return (
     <>
       {/* CAROUSEL */}
-      <div className="mt-14 overflow-hidden">
+      <div ref={containerRef} className="mt-14 overflow-hidden w-full">
         <div
-          className={`
-            flex gap-10 
-            transition-transform duration-500 ease-in-out
-          `}
+          className="flex md:gap-10 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
           style={{
-            transform: `translateX(-${startIndex * (100 / VISIBLE)}%)`,
+            transform: `translateX(-${startIndex * (cardPxWidth + GAP)}px)`,
           }}
         >
-          {properties.map((item) => (
+          {properties.map((item, i) => (
             <div
               key={item.id}
               className="flex-shrink-0"
-              style={{ width: `${100 / VISIBLE}%` }}
+              style={{
+                width: `${cardPxWidth}px`,
+                marginRight: i === properties.length - 1 ? 0 : `${GAP}px`, // spacing real
+              }}
             >
               <PropertyCard data={item} />
             </div>
@@ -53,7 +87,7 @@ export default function PropertyCaroursel() {
       </div>
 
       {/* NAVIGATION */}
-      <div className="mt-10 flex justify-center gap-3">
+      <div className="mt-8 flex justify-center gap-3">
         <button
           onClick={prev}
           disabled={startIndex === 0}

@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Upgrade from "./components/Upgrade";
+import ListHouse from "./components/ListHouse";
 import BottomSection from "./components/BottomSection";
 
 export default function App() {
@@ -12,7 +12,7 @@ export default function App() {
       </header>
 
       <main>
-        <Upgrade />
+        <ListHouse />
       </main>
 
       <footer>

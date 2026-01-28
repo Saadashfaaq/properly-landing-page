@@ -1,4 +1,4 @@
-import bgImage from "../assets/images/house-1.jpg";
+import bgImage from "../assets/images/house-3.jpg";
 
 export default function BottomSection() {
   return (
@@ -42,57 +42,70 @@ export default function BottomSection() {
           </div>
         </nav>
 
-        {/* Hero Section with single background */}
+        <div
+          className="
+    relative
+    h-[20vh] sm:h-[250vh] md:h-[30vh] lg:h-[35vh]
+    text-center
+    object-cover
+  "
+          style={{
+            backgroundImage: `url(${bgImage})`,
+            backgroundRepeat: "repeat",
+          }}
+        >
+          <h1
+            className="
+      bg-white
+      overflow-hidden
+      inline-block
+      font-bold
+      leading-none
+      w-full
+      tracking-widest
 
-        <div>
-          {/* TOP WHITE SECTION */}
-          <div className=" w-full flex items-end justify-center">
-            <p
+      text-[4rem]
+      sm:text-[5rem]
+      md:text-[9rem]
+    "
+          >
+            <span
               className="
-            w-full
-            text-[clamp(2rem,11vw,10rem)]
-            font-black
-            uppercase
-            text-transparent
-            bg-clip-text
-            bg-no-repeat
-            select-none
-            bg-cover
-            text-center
-          "
+        block
+        bg-clip-text
+        text-transparent
+        object-cover
+
+        mb-[-12px]
+        sm:mb-[-18px]
+        md:mb-[-25px]
+      "
               style={{
                 backgroundImage: `url(${bgImage})`,
-                backgroundPosition: "top center",
+                backgroundRepeat: "repeat",
               }}
             >
               PROPERLY
-            </p>
-          </div>
+            </span>
+          </h1>
 
-          {/* BOTTOM IMAGE SECTION */}
-          {/* BOTTOM IMAGE SECTION */}
-          <div
-            className="relative h-[35vh] w-full bg-no-repeat bg-cover flex items-end justify-center"
-            style={{
-              backgroundImage: `url(${bgImage})`,
-              backgroundPosition: "center center",
-            }}
+          {/* COPYRIGHT TEXT */}
+          <p
+            className="
+      absolute
+      bottom-3
+      left-1/2
+      -translate-x-1/2
+      text-white
+      text-xs
+      sm:text-sm
+      text-center
+      opacity-80
+      whitespace-nowrap
+    "
           >
-            <p
-              className="
-                  absolute 
-                  bottom-1 
-                  text-white 
-                  text-sm 
-                  text-center 
-                  px-3 
-                  py-1 
-                  rounded
-                "
-            >
-              Copyright ©2024. All Right Reserved. Powered by: Madeindonesia
-            </p>
-          </div>
+            Copyright ©2024. All Right Reserved. Powered by: Madeindonesia
+          </p>
         </div>
       </div>
     </section>

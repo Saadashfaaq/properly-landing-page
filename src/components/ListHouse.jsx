@@ -1,6 +1,6 @@
 import PropertyCaroursel from "./property/PropertyCarousel";
 
-export default function Upgrade() {
+export default function ListHouse() {
   return (
     <section id="portfolio" className="pt-5">
       <div className="container-page">

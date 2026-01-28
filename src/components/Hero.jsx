@@ -3,13 +3,16 @@ import houseImage from "../assets/images/house-1.jpg";
 
 export default function Hero() {
   return (
-    <section id="about" className="relative mt-10 pt-6 overflow-hidden">
+    <section id="about" className="relative mt-12 pt-6 overflow-hidden">
       <div className="container-page grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* LEFT */}
         <div>
-          <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-            Let’s Find The Most <br />
-            <span className="text-blue-500">Suitable Home</span>
+          <h1 className="text-4xl lg:text-5xl font-bold leading-snug">
+            <span className="block">Let’s Find The Most</span>
+            <span className="block">
+              <span className="text-blue-500">Suitable Home</span>
+              <span className="text-black"> For You !</span>
+            </span>
           </h1>
 
           <p className="mt-6 text-gray-600 max-w-md">
@@ -18,7 +21,7 @@ export default function Hero() {
           </p>
 
           {/* Stats */}
-          <div className="mt-10 flex gap-10">
+          <div className="mt-4 mb-20 flex gap-10">
             <StatItem value="29" label="Success Partners" />
             <StatItem value="92+" label="Strategic Location" />
             <StatItem value="120K" label="Satisfying Customer" />
@@ -184,7 +187,7 @@ export default function Hero() {
               <div
                 className="absolute -bottom-2 left-1/2 -translate-x-1/2 
       w-3 h-3 md:w-4 md:h-4 
-      bg-white rotate-45 shadow-md
+      bg-white rotate-45
       group-hover:border-r group-hover:border-b group-hover:border-blue-500
       transition-all duration-300"
               ></div>
